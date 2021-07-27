@@ -1,5 +1,21 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+      <template v-for="(item,index) in members" >
+        <router-link :key="index" :to="`/EachOne/${index}`">{{ item.name }}</router-link> |
+      </template>
+      <h1>{{ data }}</h1>
   </div>
 </template>
+<script>
+import {mapState} from 'vuex'
+export default {
+  data(){
+    return{
+      
+    }
+  },
+  computed:{
+    ...mapState(["members","data"])
+  }
+}
+</script>
