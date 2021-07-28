@@ -1,9 +1,8 @@
 <template>
   <div class="about">
       <template v-for="(item,index) in members" >
-        <router-link :key="index" :to="`/EachOne/${index}`">{{ item.name }}</router-link> |
+        <router-link :key="index" :to="`/EachOne/${item.cat}/${item.id}`">{{ item.name }}</router-link> |
       </template>
-      <h1>{{ data }}</h1>
   </div>
 </template>
 <script>
@@ -15,7 +14,7 @@ export default {
     }
   },
   computed:{
-    ...mapState(["members","data"])
+    ...mapState(["members"])
   }
 }
 </script>

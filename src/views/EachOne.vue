@@ -1,9 +1,9 @@
 <template>
   <div>
-    <p>name members : {{ single.shayan }}</p>
-    <p>id members : {{ single.id }}</p>
-    <p>size members : {{ single.size }}</p>
-    <p>{{ data[0].shayan }}</p>
+    
+    <p>id: {{ single[0].id }}</p>
+    <p>size: {{ single[0].size }}</p>
+    <p>price:  {{ single[0].price }}</p>
   </div>
 </template>
 <script>
@@ -15,11 +15,18 @@ export default {
     };
   },
   computed: {
-    ...mapState(["members","data"]),
+    ...mapState(["members"]),
   },
   mounted() {
-    var user = this.data[this.$route.params.id];
-    this.single=user 
+    
+
+    this.single=this.members.filter(item=>{
+      return item.id==this.$route.params.id
+    })
+
+    
+  
+    
   },
 };
 </script>
